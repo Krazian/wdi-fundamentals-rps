@@ -4,7 +4,7 @@
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
 }
 function randomPlay() {
@@ -22,19 +22,18 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    var move;
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return  move = move || getInput();
+    return  move  || getInput();
 }
 
 function getComputerMove(move) {
-    var move;
+  
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return move = move || randomPlay();
+    return move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -64,8 +63,22 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+        // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
+    var roShamBo;
+    while ((playerWins < 5) && (computerWins < 5)) {
+    roShamBo = getWinner (getPlayerMove(), getComputerMove());
+    if (roShamBo == "player") {
+        console.log ("You won! Let's go again!");
+        playerWins += 1;
+    }
+    else if (roShamBo == "computer") {
+        console.log ("You lost... Let's go again!");
+        computerWins += 1;
+    }
+    else {
+        console.log ("You picked the same thing! It's a tie! Try again!");
+    }
+    console.log ("The score currently, You: " + playerWins + " to Computer: " + computerWins + "!");
+    }
     return [playerWins, computerWins];
 }
-
